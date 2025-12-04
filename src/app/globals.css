@@ -1,3 +1,61 @@
 @import "tailwindcss";
 
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: hsl(256deg 40% 30%);
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  background: linear-gradient(
+    to top,
+    hsl(256deg 40% 30%),
+    hsl(256deg 30% 15%)
+  );
+}
+
+body > main {
+  flex: 1;
+  position: relative;
+}
+
+.swoopsWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    75deg,
+    hsl(256deg 40% 40%) 0px 3px,
+    transparent 3px 10px
+  ),
+  hsl(256deg 40% 30%);
+
+  overflow: hidden;
+}
+
+.blocker {
+  position: absolute;
+  inset: calc(3px * -1);
+  width: calc(100% + 4px);
+
+  min-width: 800px;
+  height: 80%;
+  max-width: revert;
+
+  & path {
+    fill: hsl(256deg 40% 30%);
+    stroke: hsl(256deg 40% 40%);
+    stroke-width: 3px;
+  }
+}
+
