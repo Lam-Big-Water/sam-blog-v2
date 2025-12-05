@@ -1,11 +1,11 @@
 import React from "react";
 import { Rss, Sun, Moon } from "react-feather";
-import HeaderLogo from "./logo";
+import Logo from "./logo";
 
 const Header = () => {
   return (
     <div className="relative w-full max-w-[880px] m-auto px-4 h-20 flex justify-between items-center text-amber-50 font-medium">
-      <HeaderLogo />
+      <Logo />
 
       <div className="flex gap-4 items-center">
         <a

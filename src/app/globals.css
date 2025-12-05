@@ -5,7 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  background: hsl(256deg 40% 30%);
+  background: hsl(256deg 20% 4%);
 }
 
 body::before {
@@ -18,8 +18,8 @@ body::before {
   height: 50vh;
   background: linear-gradient(
     to top,
-    hsl(256deg 40% 30%),
-    hsl(256deg 30% 15%)
+    hsl(256deg 20% 4%),
+    hsl(256deg 40% 30%)
   );
 }
 
@@ -35,7 +35,7 @@ body > main {
   height: 100%;
   background: repeating-linear-gradient(
     75deg,
-    hsl(256deg 40% 40%) 0px 3px,
+    hsl(256deg 20% 4%) 0px 3px,
     transparent 3px 10px
   ),
   hsl(256deg 40% 30%);
@@ -53,8 +53,8 @@ body > main {
   max-width: revert;
 
   & path {
-    fill: hsl(256deg 40% 30%);
-    stroke: hsl(256deg 40% 40%);
+    fill: hsl(256deg 20% 4%);
+    stroke: hsl(256deg 40% 30%);
     stroke-width: 3px;
   }
 }
