@@ -190,3 +190,26 @@ export async function generateMetadata({ params }: ParamsPropsType) {
   };
 }
 ```
+
+6. Code snippets
+
+- use lib `bright`
+```tsx
+import React from 'react'
+import { Code } from 'bright'
+import theme from './theme'
+
+const CodeSnippet = (props: React.ComponentProps<typeof Code>) => {
+  return (
+    <Code 
+    {...props}
+    theme={theme}
+    />
+  )
+}
+
+export default CodeSnippet
+```
+```tsx
+  <MDXRemote source={content} components={{pre:CodeSnippet}}/>
+```

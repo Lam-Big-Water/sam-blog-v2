@@ -3,7 +3,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { loadBlogPost } from "@/helper/file-helper";
 import BlogHero from "../_components/postHero";
 import { BLOG_TITLE } from "../constants";
-
+import CodeSnippet from "@/utils/codeSnippet";
 interface ParamsPropsType {
   params: Promise<{
     postSlug: string;
@@ -32,7 +32,7 @@ const BlogPost = async ({ params }: ParamsPropsType) => {
       />
 
       <div className="text-lg font-medium text-amber-50">
-        <MDXRemote source={content} />
+        <MDXRemote source={content} components={{pre: CodeSnippet}}/>
       </div>
     </article>
   );
