@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -9,23 +8,52 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: absolute;
   z-index: 0;
   top: 0;
   left: 0;
   right: 0;
   height: 50vh;
-  background: linear-gradient(
-    to top,
-    hsl(256deg 20% 4%),
-    hsl(256deg 40% 30%)
-  );
+  background: linear-gradient(to top, hsl(256deg 20% 4%), hsl(256deg 40% 30%));
 }
 
 body > main {
   flex: 1;
   position: relative;
+}
+
+em {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 650;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.25rem;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5em;
+}
+p code {
+  display: inline-block;
+  font-size: 0.9em;
+  background: var(--color-inline-code-bg);
+  padding: 3px 6px;
+  margin: -0.25em -1px;
+  border-radius: 3px;
 }
 
 .swoopsWrapper {
@@ -34,11 +62,11 @@ body > main {
   width: 100%;
   height: 100%;
   background: repeating-linear-gradient(
-    75deg,
-    hsl(256deg 20% 4%) 0px 3px,
-    transparent 3px 10px
-  ),
-  hsl(256deg 40% 30%);
+      75deg,
+      hsl(256deg 20% 4%) 0px 3px,
+      transparent 3px 10px
+    ),
+    hsl(256deg 40% 30%);
 
   overflow: hidden;
 }
@@ -59,3 +87,15 @@ body > main {
   }
 }
 
+@media (min-width: 35rem) {
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+}
