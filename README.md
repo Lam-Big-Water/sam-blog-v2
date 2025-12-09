@@ -213,3 +213,24 @@ export default CodeSnippet
 ```tsx
   <MDXRemote source={content} components={{pre:CodeSnippet}}/>
 ```
+
+7. Rendering embedded components
+
+- create mdx-components
+```ts
+// mdx-components.ts
+import CodeSnippet from "@/utils/codeSnippet";
+import PasswordToggle from "@/app/_components/inputTest";
+// Creates a component mapping object:
+// pre: Overrides the default <pre> tag with a custom component
+const COMPONENT_MAP = {
+    pre: CodeSnippet,
+    PasswordToggle,
+}
+
+export default COMPONENT_MAP;
+```
+
+```tsx
+import COMPONENT_MAP from '@/helpers/mdx-components';
+```
