@@ -82,3 +82,39 @@ export async function getBlogPostsList(): Promise<BlogPost[]> {
 }
 
 ```
+
+3. load blog post & Optimize performance
+```ts
+export interface BlogPostContent {
+  frontmatter: BlogPostFrontMatter;
+  content: string;
+}
+
+// React.cache() Wrapper -  memoizes/caches the results of async functions
+// It prevents duplicate fetches/reads for the same slug during a render - in RSC
+
+export const loadBlogPost = React.cache(async function loadBlogPost(
+  slug: string
+): Promise<BlogPostContent> {
+  const rawContent = await readFile(`/content/${slug}.mdx`);
+
+// data: Extracts the YAML frontmatter section (metadata)
+// content: Extracts the actual Markdown content (after the frontmatter)
+  const { data: frontmatter, content } = matter(rawContent);
+
+  return { frontmatter: frontmatter as BlogPostFrontMatter, content };
+});
+
+
+// returns
+{
+  frontmatter: {
+    title: "Welcome to My Blog",
+    abstract: "An introduction to this blog",
+    publishedOn: "2024-01-01",
+    author: "John Doe"  // Extra property allowed by [key: string]: unknown
+  },
+  content: "# Welcome!\n\nThis is my first blog post content...\n\n## Subheading\n\nMore content here."
+}
+
+```

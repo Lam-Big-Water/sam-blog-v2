@@ -18,6 +18,11 @@ export interface BlogPostFrontMatter {
   [key: string]: unknown;
 }
 
+export interface BlogPostContent {
+  frontmatter: BlogPostFrontMatter;
+  content: string;
+}
+
 function readDirectory(localPath: string): Promise<string[]> {
   return fs.readdir(path.join(process.cwd(), localPath));
 }
@@ -38,9 +43,19 @@ export async function getBlogPostsList(): Promise<BlogPost[]> {
 
     blogPosts.push({
       slug: fileName.replace(".mdx", ""),
-      ...frontmatter as BlogPostFrontMatter,
+      ...(frontmatter as BlogPostFrontMatter),
     });
   }
 
   return blogPosts.sort((p1, p2) => (p1.publishedOn < p2.publishedOn ? 1 : -1));
 }
+
+export const loadBlogPost = React.cache(async function loadBlogPost(
+  slug: string
+): Promise<BlogPostContent> {
+  const rawContent = await readFile(`/content/${slug}.mdx`);
+
+  const { data: frontmatter, content } = matter(rawContent);
+
+  return { frontmatter: frontmatter as BlogPostFrontMatter, content };
+});
