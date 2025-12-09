@@ -118,3 +118,15 @@ export const loadBlogPost = React.cache(async function loadBlogPost(
 }
 
 ```
+
+4. How to displaying MDX
+
+- crate dynamic route
+```
+src/app/[postSlug]
+```
+
+- get route params
+```tsx
+
+```

@@ -4,7 +4,6 @@ import {getBlogPostsList} from '@/helper/file-helper';
 
 const Home = async () => {
   const postsList = await getBlogPostsList();
-  console.log(postsList)
   return (
     <div className="w-full max-w-220 py-16 px-8 m-auto flex flex-col items-center text-amber-50 font-medium">
       <div className="flex flex-col items-center gap-6">

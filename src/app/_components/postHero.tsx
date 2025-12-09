@@ -5,7 +5,7 @@ interface PostType {
     publishedOn: string;
 }
 
-const PostHero = ({title, publishedOn}: PostType) => {
+const BlogHero = ({title, publishedOn}: PostType) => {
   return (
     <div className='py-10'>
         <h1 className='text-4xl text-amber-50 font-black py-4'>{title}</h1>
@@ -14,4 +14,4 @@ const PostHero = ({title, publishedOn}: PostType) => {
   )
 }
 
-export default PostHero
+export default BlogHero
