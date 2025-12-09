@@ -167,3 +167,26 @@ const BlogPost = async ({ params }: ParamsPropsType) => {
 export default BlogPost;
 
 ```
+
+5. Adding metadata
+
+- create basic site info
+```ts
+export const BLOG_TITLE = 'Front & Fun';
+```
+
+- generateMetadata
+```tsx
+import { BLOG_TITLE } from '@/constants';
+// generateMetadata is a Next.js special function. It automatically generates metadata for the page (for SEO, social sharing, etc.)
+export async function generateMetadata({ params }: ParamsPropsType) {
+  const { postSlug } = await params;
+
+  const { frontmatter } = await loadBlogPost(postSlug);
+
+  return {
+    title: `${frontmatter.title} ● ${BLOG_TITLE}`,
+    description: frontmatter.abstract,
+  };
+}
+```
