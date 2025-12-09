@@ -39,3 +39,46 @@ function readDirectory(localPath: string): Promise<string[]> {
 const items = await readDirectory("src");
 ```
 
+2. Read & process each file
+```ts
+import matter from "gray-matter";
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  abstract: string;
+  publishedOn: string;
+  [key: string]: unknown;
+}
+
+export interface BlogPostFrontMatter {
+  title: string; // URL-friendly identifier (from filename)
+  abstract: string;
+  publishedOn: string;
+  [key: string]: unknown;
+}
+
+export async function getBlogPostsList(): Promise<BlogPost[]> {
+// Step 1: Read directory contents
+// Reads all files from /content directory (relative to project root)
+  const fileNames = await readDirectory("/content");
+
+  const blogPosts: BlogPost[] = [];
+// Step 2: Process each MDX file
+// For each file, reads the full content
+  for (const fileName of fileNames) {
+    const rawContent = await readFile(`/content/${fileName}`);
+// matter() (from gray-matter library) extracts frontmatter
+    const { data: frontmatter } = matter(rawContent);
+// Step 3: Create BlogPost object
+    blogPosts.push({
+      slug: fileName.replace(".mdx", ""), // "my-first-post.mdx" → "my-first-pos
+      // Spread frontmatter properties
+      ...frontmatter as BlogPostFrontMatter, // Type assertion
+    });
+  }
+// Step 4: Sort by publication date
+  return blogPosts.sort((p1, p2) => (p1.publishedOn < p2.publishedOn ? 1 : -1)); // Sorts in descending order (newest first)
+}
+
+```
