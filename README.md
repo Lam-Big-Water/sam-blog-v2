@@ -234,3 +234,47 @@ export default COMPONENT_MAP;
 ```tsx
 import COMPONENT_MAP from '@/helpers/mdx-components';
 ```
+
+8. 404 Page
+
+- create not-fount
+```tsx
+import React from 'react';
+
+import { BLOG_TITLE } from './constants';
+
+export const metadata = {
+    title: `404 Not found ● ${BLOG_TITLE}`
+};
+
+function NotFound () {
+    return (
+        <div className='pt-24 text-center text-amber-50'>
+            <h1 className='mb-[1em]'>404 Not Found</h1>
+
+            <p>This page does not exits. Please check the URL and Try again.</p>
+        </div>
+    )
+}
+
+export default NotFound;
+```
+- handle error
+```tsx
+try {
+    rawContent = await readFile(`/content/${slug}.mdx`);
+
+  } catch (err) {
+    return null;
+  }
+
+```
+
+- navigation notFound
+```tsx
+import { notFound } from "next/navigation";
+
+  if (!blogPostData) {
+    notFound();
+  }
+```

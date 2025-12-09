@@ -52,8 +52,16 @@ export async function getBlogPostsList(): Promise<BlogPost[]> {
 
 export const loadBlogPost = React.cache(async function loadBlogPost(
   slug: string
-): Promise<BlogPostContent> {
-  const rawContent = await readFile(`/content/${slug}.mdx`);
+): Promise<BlogPostContent | null> {
+
+  let rawContent;
+
+  try {
+    rawContent = await readFile(`/content/${slug}.mdx`);
+
+  } catch (err) {
+    return null;
+  }
 
   const { data: frontmatter, content } = matter(rawContent);
 
