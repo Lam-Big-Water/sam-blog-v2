@@ -157,7 +157,7 @@ const BlogPost = async ({ params }: ParamsPropsType) => {
         publishedOn={frontmatter.publishedOn}
       />
 
-        <div className="text-lg font-medium text-amber-50">
+        <div className="text-lg font-medium  ">
             <MDXRemote source={content} />
         </div>
     </article>
@@ -249,7 +249,7 @@ export const metadata = {
 
 function NotFound () {
     return (
-        <div className='pt-24 text-center text-amber-50'>
+        <div className='pt-24 text-center  '>
             <h1 className='mb-[1em]'>404 Not Found</h1>
 
             <p>This page does not exits. Please check the URL and Try again.</p>
@@ -277,4 +277,27 @@ import { notFound } from "next/navigation";
   if (!blogPostData) {
     notFound();
   }
+```
+
+9. dark mode
+
+- custom color
+```css
+:root {
+  /* 文本 */
+  --color-text: hsl(0deg 0% 5%);
+}
+
+.dark {
+    --color-text: hsl(0deg 0% 100%);
+}
+
+@theme {
+  --color-text: var(--color-text);
+}
+```
+
+- toggle logic
+```html
+<html class="dark & "></html>
 ```

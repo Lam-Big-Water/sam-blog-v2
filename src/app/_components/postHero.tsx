@@ -8,7 +8,7 @@ interface PostType {
 const BlogHero = ({title, publishedOn}: PostType) => {
   return (
     <div className='py-10'>
-        <h1 className='text-4xl text-amber-50 font-black py-4'>{title}</h1>
+        <h1 className='text-4xl   font-black py-4'>{title}</h1>
         <time className='text-purple-50 text-lg' dateTime={publishedOn}>Published on {publishedOn}</time>
     </div>
   )

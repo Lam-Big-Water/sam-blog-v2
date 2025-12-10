@@ -1,10 +1,149 @@
 @import "tailwindcss";
 
+/* 浅色主题 */
+:root {
+  /* 文本 */
+  --color-text: hsl(0deg 0% 5%);
+  
+  /* 主色系 */
+  --color-primary-100: hsl(240deg 100% 90%);
+  --color-primary-300: hsl(242deg 100% 70%);
+  --color-primary-500: hsl(245deg 100% 60%);
+  --color-primary-700: hsl(250deg 100% 33%);
+  --color-primary-900: hsl(256deg 100% 20%);
+  --color-primary-contrast: white;
+  
+  /* 次要色 */
+  --color-secondary-500: hsl(328deg 100% 50%);
+  
+  /* 装饰色 */
+  --color-decorative-100: hsl(50deg 100% 94%);
+  --color-decorative-200: hsl(50deg 100% 90%);
+  --color-decorative-300: hsl(50deg 100% 85%);
+  --color-decorative-500: hsl(50deg 100% 70%);
+  --color-decorative-600: hsl(50deg 100% 60%);
+  --color-decorative-700: hsl(50deg 100% 50%);
+  --color-decorative-800: hsl(50deg 100% 33%);
+  --color-decorative-900: hsl(50deg 100% 25%);
+  
+  /* 灰色系 */
+  --color-gray-0: white;
+  --color-gray-100: hsl(50deg 20% 90%);
+  --color-gray-200: hsl(50deg 15% 85%);
+  --color-gray-300: hsl(50deg 10% 70%);
+  --color-gray-500: hsl(50deg 4% 50%);
+  --color-gray-700: hsl(50deg 10% 25%);
+  --color-gray-900: hsl(50deg 20% 10%);
+  --color-gray-1000: black;
+
+  --color-inline-code-bg: hsl(45deg 74% 85%);
+
+  --shadow-page:
+    0px 1px 2px hsl(50deg 60% 50% / 0.25),
+    0px 3px 6px hsl(50deg 60% 50% / 0.25),
+    0px 9px 18px hsl(50deg 60% 50% / 0.25),
+    0px 18px 36px hsl(50deg 60% 50% / 0.25),
+    0px 54px 108px hsl(50deg 60% 50% / 0.25)
+  ;
+
+  --shadow-card:
+    0px 1px 2px hsl(50deg 20% 50% / 0.2),
+    0px 2px 4px hsl(50deg 20% 50% / 0.2),
+    0px 4px 8px hsl(50deg 20% 50% / 0.2),
+    0px 8px 16px hsl(50deg 20% 50% / 0.2)
+  ;
+}
+
+/* 深色主题 */
+.dark {
+  --color-text: hsl(0deg 0% 100%);
+  
+  --color-primary-100: hsl(50deg 100% 90%);
+  --color-primary-300: hsl(50deg 100% 70%);
+  --color-primary-500: hsl(50deg 100% 50%);
+  --color-primary-700: hsl(50deg 100% 35%);
+  --color-primary-900: hsl(50deg 100% 25%);
+  --color-primary-contrast: black;
+  
+  --color-secondary-500: hsl(328deg 100% 50%);
+  
+  --color-decorative-100: hsl(256deg 20% 4%);
+  --color-decorative-200: hsl(256deg 30% 10%);
+  --color-decorative-300: hsl(256deg 30% 15%);
+  --color-decorative-500: hsl(256deg 40% 30%);
+  --color-decorative-600: hsl(256deg 40% 40%);
+  --color-decorative-700: hsl(256deg 40% 50%);
+  --color-decorative-800: hsl(256deg 45% 65%);
+  --color-decorative-900: hsl(256deg 55% 80%);
+  
+  --color-gray-0: black;
+  --color-gray-100: hsl(256deg 20% 10%);
+  --color-gray-200: hsl(256deg 15% 15%);
+  --color-gray-300: hsl(256deg 10% 30%);
+  --color-gray-500: hsl(256deg 4% 50%);
+  --color-gray-700: hsl(256deg 10% 75%);
+  --color-gray-900: hsl(256deg 20% 90%);
+  --color-gray-1000: white;
+
+  --color-inline-code-bg: hsl(256deg 30% 22%);
+
+  --shadow-page: none;
+
+  --shadow-card: none;
+}
+
+/* 映射到 Tailwind */
+@theme {
+  /* 文本颜色 */
+  --color-text: var(--color-text);
+  
+  /* 主色 */
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-contrast: var(--color-primary-contrast);
+  
+  /* 次要色 */
+  --color-secondary-500: var(--color-secondary-500);
+  --color-secondary: var(--color-secondary-500);
+  
+  /* 装饰色 */
+  --color-decorative-100: var(--color-decorative-100);
+  --color-decorative-200: var(--color-decorative-200);
+  --color-decorative-300: var(--color-decorative-300);
+  --color-decorative-500: var(--color-decorative-500);
+  --color-decorative-600: var(--color-decorative-600);
+  --color-decorative-700: var(--color-decorative-700);
+  --color-decorative-800: var(--color-decorative-800);
+  --color-decorative-900: var(--color-decorative-900);
+  
+  /* 灰色系 */
+  --color-gray-0: var(--color-gray-0);
+  --color-gray-100: var(--color-gray-100);
+  --color-gray-200: var(--color-gray-200);
+  --color-gray-300: var(--color-gray-300);
+  --color-gray-500: var(--color-gray-500);
+  --color-gray-700: var(--color-gray-700);
+  --color-gray-900: var(--color-gray-900);
+  --color-gray-1000: var(--color-gray-1000);
+  
+  /* 添加简写别名（可选） */
+  --color-primary: var(--color-primary-500);
+  --color-secondary: var(--color-secondary-500);
+  --color-inline-code-bg: var(--color-inline-code-bg);
+  --shadow-card: var(--shadow-card);
+  --shadow-page: var(--shadow-page);
+}
+
+
 body {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  background: hsl(256deg 20% 4%);
+  color: var(--color-text);
+  background-color: var(--color-decorative-100);
 }
 
 body::before {
@@ -15,7 +154,7 @@ body::before {
   left: 0;
   right: 0;
   height: 50vh;
-  background: linear-gradient(to top, hsl(256deg 20% 4%), hsl(256deg 40% 30%));
+  background: linear-gradient(to top, var(--color-decorative-100), var(--color-decorative-500));
 }
 
 body > main {
@@ -50,7 +189,7 @@ p {
 p code {
   display: inline-block;
   font-size: 0.9em;
-  background: var(--color-inline-code-bg);
+  background: var(--color-decorative-300);
   padding: 3px 6px;
   margin: -0.25em -1px;
   border-radius: 3px;
@@ -63,10 +202,10 @@ p code {
   height: 100%;
   background: repeating-linear-gradient(
       75deg,
-      hsl(256deg 20% 4%) 0px 3px,
+      var(--color-decorative-300) 0px 3px,
       transparent 3px 10px
     ),
-    hsl(256deg 40% 30%);
+    var(--color-decorative-100);
 
   overflow: hidden;
 }
@@ -81,8 +220,8 @@ p code {
   max-width: revert;
 
   & path {
-    fill: hsl(256deg 20% 4%);
-    stroke: hsl(256deg 40% 30%);
+    fill: var(--color-decorative-100);
+    stroke: var(--color-decorative-300);
     stroke-width: 3px;
   }
 }

@@ -10,15 +10,15 @@ const Footer = () => {
         <div className="max-w-80">
           <Logo />
 
-          <p className="max-w-[18rem] text-sm text-amber-50 mt-6">
+          <p className="max-w-[18rem] text-sm   mt-6">
             Blog template created by Josh W. Comeau. Check out The Joy of React
             to learn how to build dynamic React apps like this one!
           </p>
         </div>
 
         <div>
-          <h5 className="text-amber-50 text-2xl font-bold">Links</h5>
-          <ul className="flex flex-col gap-2 text-amber-50 font-bold mt-6">
+          <h5 className="  text-2xl font-bold">Links</h5>
+          <ul className="flex flex-col gap-2   font-bold mt-6">
             <li>
               <a href="#">RSS feed</a>
             </li>

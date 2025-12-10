@@ -45,7 +45,7 @@ const BlogPost = async ({ params }: ParamsPropsType) => {
         publishedOn={frontmatter.publishedOn}
       />
 
-      <div className="text-lg font-medium text-amber-50">
+      <div className="text-lg font-medium  ">
         <MDXRemote source={content} components={COMPONENT_MAP}/>
       </div>
     </article>

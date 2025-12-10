@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Logo = () => {
   return (
-    <Link href="/" className="block text-2xl text-amber-50 font-semibold -leading-2 transition-all duration-400 ease-in-out will-change-transform pointer-fine:hover:font-black">
+    <Link href="/" className="block text-2xl font-semibold -leading-2 transition-all duration-400 ease-in-out will-change-transform pointer-fine:hover:font-black">
       Bits & Bytes
     </Link>
   );
