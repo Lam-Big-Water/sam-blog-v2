@@ -1,7 +1,17 @@
 @import "tailwindcss";
 
+html {
+  --content-width: 55rem;
+  --outer-content-width: 80rem;
+  --viewport-padding: 16px;
+  --header-height: 5rem;
+  --trimmed-content-width: calc(
+    var(--content-width) - var(--viewport-padding) * 2
+  );
+}
+
 /* 浅色主题 */
-:root {
+.light {
   /* 文本 */
   --color-text: hsl(0deg 0% 5%);
   
@@ -194,6 +204,23 @@ p code {
   margin: -0.25em -1px;
   border-radius: 3px;
 }
+
+  .page {
+    position: relative;
+    display: grid;
+    grid-template-columns:
+      1fr min(var(--trimmed-content-width), 100%)
+      1fr;
+    max-width: var(--outer-content-width);
+    margin: 0 auto;
+    padding: 64px var(--viewport-padding) 32px;
+    background: var(--color-decorative-100);
+    box-shadow: var(--shadow-page);
+  }
+  
+  .page > * {
+    grid-column: 2;
+  }
 
 .swoopsWrapper {
   position: absolute;

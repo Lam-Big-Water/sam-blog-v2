@@ -39,13 +39,13 @@ const BlogPost = async ({ params }: ParamsPropsType) => {
 
   const { frontmatter, content } = blogPostData;
   return (
-    <article className="max-w-220 w-full m-auto px-4">
+    <article className="relative z-10 pb-16">
       <BlogHero
         title={frontmatter.title}
         publishedOn={frontmatter.publishedOn}
       />
 
-      <div className="text-lg font-medium  ">
+      <div className="page">
         <MDXRemote source={content} components={COMPONENT_MAP}/>
       </div>
     </article>

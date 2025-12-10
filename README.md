@@ -301,3 +301,42 @@ import { notFound } from "next/navigation";
 ```html
 <html class="dark & "></html>
 ```
+
+- control & stroy the theme value
+
+```tsx
+// stroy
+import Cookie from "js-cookie";
+
+// control
+function handleClick () {
+    
+    const nextTheme = theme === "light" ? "dark" : "light";
+
+    setTheme(nextTheme);
+
+    Cookie.set(COLOR_THEME_COOKIE_NAME, nextTheme, {
+      expires: 1000,
+    });
+
+    const root = document.documentElement;
+    root.classList.remove(theme);
+    root.classList.add(nextTheme);
+  }
+
+// toggle
+  const [theme, setTheme] = React.useState(initialTheme);
+
+  <button onClick={handleClick} className="bg-transparent w-12 h-12 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 hover:bg-black">
+          {theme === "light" ? <Sun /> : <Moon />}
+  </button>
+
+// use cookie value
+import {cookies} from "next/headers";
+
+  const savedTheme = (await cookies()).get(
+    COLOR_THEME_COOKIE_NAME
+  );
+
+// Map the corresponding color
+```
