@@ -29,13 +29,7 @@ const Header = ({initialTheme}: {initialTheme: "light" | "dark"}) => {
       <Logo />
 
       <div className="flex gap-4 items-center">
-        <a
-          href="#"
-          className="bg-transparent w-12 h-12 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 hover:bg-black"
-        >
-          <Rss className="block" />
-        </a>
-        <button onClick={handleClick} className="bg-transparent w-12 h-12 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 hover:bg-black">
+        <button onClick={handleClick} className="bg-transparent w-12 h-12 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 hover:bg-decorative-100">
           {theme === "light" ? <Sun /> : <Moon />}
         </button>
       </div>
