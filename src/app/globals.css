@@ -1,16 +1,5 @@
 @import "tailwindcss";
 
-html {
-  --content-width: 55rem;
-  --outer-content-width: 80rem;
-  --viewport-padding: 16px;
-  --header-height: 5rem;
-  --trimmed-content-width: calc(
-    var(--content-width) - var(--viewport-padding) * 2
-  );
-  background: var(--color-decorative-300);
-}
-
 /* 浅色主题 */
 .light {
   /* 文本 */
@@ -144,41 +133,115 @@ html {
   --shadow-page: var(--shadow-page);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100svh;
-  color: var(--color-text);
-  background-color: var(--color-decorative-500);
-}
+@layer base {
 
-body::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50vh;
-  background: linear-gradient(
-    to top,
-    var(--color-decorative-500),
-    var(--color-decorative-300)
+  html {
+  --content-width: 55rem;
+  --outer-content-width: 80rem;
+  --viewport-padding: 16px;
+  --header-height: 5rem;
+  --trimmed-content-width: calc(
+    var(--content-width) - var(--viewport-padding) * 2
   );
 }
 
-body > main {
-  flex: 1;
-  position: relative;
+  html {
+    scrollbar-gutter: stable;
+    color: var(--color-text);
+    font-family: var(--font-family), sans-serif;
+    letter-spacing: -0.03125em;
+    background: var(--color-decorative-300);
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    color: var(--color-text);
+    background-color: var(--color-decorative-500);
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    background: linear-gradient(
+      to top,
+      var(--color-decorative-500),
+      var(--color-decorative-300)
+    );
+  }
+
+  body > main {
+    flex: 1;
+    position: relative;
+  }
+
+    h1 {
+    font-size: 1.75rem;
+    font-weight: 650;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5em;
+  }
+
+  p code {
+    display: inline-block;
+    font-size: 0.9em;
+    background: var(--color-decorative-300);
+    padding: 3px 6px;
+    margin: -0.25em -1px;
+    border-radius: 3px;
+  }
+
+  a {
+  color: currentColor;
+  text-decoration-color: var(--color-primary-300);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.125em;
+  font-weight: 500;
+  transition: all 200ms;
+}
+a:hover {
+  text-underline-offset: 0.175em;
+}
+button {
+  padding: 0;
 }
 
-p code {
-  display: inline-block;
-  font-size: 0.9em;
-  background: var(--color-decorative-300);
-  padding: 3px 6px;
-  margin: -0.25em -1px;
-  border-radius: 3px;
+::selection {
+  background-color: var(--color-decorative-700) !important;
+  color: var(--color-text) !important;
+  background-image: none !important;
+  -webkit-text-fill-color: var(
+    --color-text
+  ) !important;
+  -moz-text-fill-color: var(
+    --color-text
+  ) !important;
+  background-image: none !important;
+  background-clip: revert !important;
+  -webkit-background-clip: revert !important;
+  text-shadow: none !important;
+}
+
 }
 
 .page {
@@ -227,5 +290,57 @@ p code {
     fill: var(--color-decorative-500);
     stroke: var(--color-decorative-600);
     stroke-width: 3px;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 0.5rem;
+}
+
+.input {
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.25rem;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.button {
+  background-color: white;
+  padding: 0.75rem 1.25rem;
+  height: 3rem;
+  grid-row: 1;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  width: 95%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.form-wrapper {
+  background-color: black;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+
+
+@media (min-width: 35rem) {
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
   }
 }
