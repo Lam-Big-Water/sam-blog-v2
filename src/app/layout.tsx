@@ -9,6 +9,8 @@ import Footer from "./_components/footer";
 import {cookies} from "next/headers";
 import { COLOR_THEME_COOKIE_NAME } from "@/app/constants";
 
+
+
 export type Theme = "light" | "dark";
 
 const mainFont = Work_Sans({
@@ -41,9 +43,9 @@ export default async function RootLayout({
   );
   const theme = (savedTheme?.value as Theme) || "light";
   return (
-    <html lang="en" className={`min-h-full min-w-full ${theme}`}>
+    <html lang="en" className={`min-h-full min-w-full ${mainFont.variable} ${monoFont.variable} ${theme}`}>
       <body
-        className={`${mainFont.variable} ${monoFont.variable} antialiased`}
+        className="antialiased"
       >
         <Header initialTheme={theme}/>
         <main className="relative">
