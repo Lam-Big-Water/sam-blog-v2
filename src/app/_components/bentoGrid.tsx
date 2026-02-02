@@ -1,19 +1,16 @@
 "use client";
 
 import { motion, useInView, useScroll, useTransform } from "motion/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export const BentoGrid = () => {
   return (
-    <>
-      <div className="flex w-full flex-col gap-8 items-center px-8">
-        <GridOne />
-        <GridOne />
-        <GridOne />
-
-        {/* <GridTwo /> */}
-      </div>
-    </>
+    <div className="flex w-full flex-col gap-8 items-center px-8">
+      <GridOne />
+      <GridOne />
+      <GridOne />
+      {/* <GridTwo /> */}
+    </div>
   );
 };
 
@@ -29,7 +26,7 @@ const Card = ({ title, subtitle, imageUrl }: CardProps) => (
       <h2 className="text-3xl">{title}</h2>
       <p>{subtitle}</p>
     </div>
-    <img className="object-cover w-full h-full" src={imageUrl} alt="" />
+    <img className="object-cover w-full h-full" src={imageUrl} alt={title} />
   </div>
 );
 
@@ -45,7 +42,7 @@ const cardInViewVariants = {
 };
 
 const GridOne = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { amount: 0.3 });
 
   return (
@@ -59,10 +56,10 @@ const GridOne = () => {
           },
         },
         outOfView: {
-          transition:{
-          staggerChildren: 0.1,
-          staggerDirection: -1,
-          }
+          transition: {
+            staggerChildren: 0.1,
+            staggerDirection: -1,
+          },
         },
       }}
       initial="outOfView"
@@ -94,8 +91,13 @@ const GridOne = () => {
   );
 };
 
-const FadeIn = ({ children, className }) => {
-  const ref = useRef(null);
+type FadeInProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const FadeIn = ({ children, className }: FadeInProps) => {
+  const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -103,7 +105,7 @@ const FadeIn = ({ children, className }) => {
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.15, 0.8, 1],
-    [0, 1, 1, 0],
+    [0, 1, 1, 0]
   );
 
   return (
