@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
 import { useRef, useState } from "react";
 
 export const BentoGrid = () => {
@@ -59,8 +59,10 @@ const GridOne = () => {
           },
         },
         outOfView: {
+          transition:{
           staggerChildren: 0.1,
           staggerDirection: -1,
+          }
         },
       }}
       initial="outOfView"
