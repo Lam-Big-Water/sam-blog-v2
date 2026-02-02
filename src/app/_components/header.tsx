@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Rss, Sun, Moon } from "react-feather";
+import Link from "next/link";
+import { Codepen, Sun, Moon } from "react-feather";
 import Logo from "./logo";
 import Cookie from "js-cookie";
 
@@ -29,8 +30,9 @@ const Header = ({initialTheme}: {initialTheme: "light" | "dark"}) => {
       <Logo />
 
       <div className="flex gap-4 items-center">
+        <Link className="bg-transparent w-12 h-12 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 hover:bg-decorative-100" href="/showroom"><Codepen size={24} strokeWidth={2}/></Link>
         <button onClick={handleClick} className="bg-transparent w-12 h-12 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 hover:bg-decorative-100">
-          {theme === "light" ? <Sun /> : <Moon />}
+          {theme === "light" ? <Sun size={24} strokeWidth={2.5}/> : <Moon size={24} strokeWidth={2.5}/>}
         </button>
       </div>
     </div>
